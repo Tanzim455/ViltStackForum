@@ -17,18 +17,18 @@
 					<div>
 						<label  class="sr-only">Title</label>
 						<input  v-model="form.title" type="text"   class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Title">
-                         <div v-if="form.errors.title">{{ form.errors.title}}</div>
+                         <div v-if="errors.title">{{ errors.title}}</div>
 
 					</div>
 					<div>
 						<label  class="sr-only">Description</label>
 						<input  v-model="form.description" type="text"  class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Description">
-                         <div v-if="form.errors.description">{{ form.errors.description }}</div>
+                         <div v-if="errors.description">{{ errors.description }}</div>
 					</div>
 					<div>
 						<label  class="sr-only">File Upload</label>
 						<input   type="file" @input="form.image = $event.target.files[0]" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Description">
-                         <div v-if="form.errors.image">{{ form.errors.image }}</div>
+                         <div v-if="errors.image">{{ errors.image }}</div>
 					</div>
                     <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an option</label>
                 <select 
@@ -69,7 +69,8 @@
 <script setup>
 import { useForm} from "@inertiajs/vue3";
 // import { onMounted,computed,ref } from "vue";
-import {ref} from "vue"
+import { reactive } from 'vue'
+import { router } from '@inertiajs/vue3'
 // import Authenticated from '../../Layouts/Authenticated.vue'
 // import BreezeGuestLayout from '@/Layouts/Guest.vue';
 import Navbar from '@/Layouts/Navbar.vue';
@@ -78,7 +79,7 @@ import SuccessMessage from '@/Components/SuccessMessage.vue';
 // onMounted(()=>{
 //   console.log("Hello",user.value.id);
 // })
-let form=useForm({
+let form=reactive({
     title:'',
     description:'',
 	 image:null,
@@ -87,8 +88,8 @@ let form=useForm({
 })
 defineProps({
     errors:{
-        type:Object
-    },
+		type:Object
+	},
     categories:{
         type:Object
     }
@@ -96,8 +97,8 @@ defineProps({
 const handleSubmit=()=>{
     //  Inertia.post('/users', form);
     //Much cleaner way 
-    form.post(route('post.store'));
-    form='';
+    router.post(route('post.store'));
+    
    
 }
 // const selected=ref(null);

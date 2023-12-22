@@ -31,7 +31,7 @@ Route::get('/test/home',function(){
 });
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::get('myprofile',[UserController::class,'profile'])->name('myprofile')->middleware('auth');
 Route::get('authuserposts',[UserController::class,'usersposts'])->middleware('auth');
@@ -54,8 +54,6 @@ Route::get('test',function(){
       return Inertia::render('Category/test');
 });
 //  Route::get('categories/{category:slug}',[CategoryController::class,'show']);
-Route::get('/test',function(){
-    return Inertia::render('Category/test');
-})->middleware('auth','can:createcategory');
+
 
 require __DIR__.'/auth.php';
