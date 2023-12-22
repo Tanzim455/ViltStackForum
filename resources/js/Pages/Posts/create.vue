@@ -67,10 +67,11 @@
 </template>
 
 <script setup>
-import { useForm, usePage } from "@inertiajs/vue3";
-import { onMounted,computed,ref } from "vue";
-import Authenticated from '../../Layouts/Authenticated.vue'
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
+import { useForm} from "@inertiajs/vue3";
+// import { onMounted,computed,ref } from "vue";
+import {ref} from "vue"
+// import Authenticated from '../../Layouts/Authenticated.vue'
+// import BreezeGuestLayout from '@/Layouts/Guest.vue';
 import Navbar from '@/Layouts/Navbar.vue';
 import SuccessMessage from '@/Components/SuccessMessage.vue';
 // const user = ref(computed(() => usePage().props.value.auth.user))
@@ -99,7 +100,7 @@ const handleSubmit=()=>{
     form='';
    
 }
-const selected=ref(null);
+// const selected=ref(null);
 </script>
 
 

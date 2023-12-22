@@ -13,7 +13,8 @@
 </template>
 
 <script setup>
-import { useForm, usePage } from '@inertiajs/inertia-vue3';
+// import { useForm, usePage } from '@inertiajs/inertia-vue3';
+import { useForm, usePage } from '@inertiajs/vue3';
 import { computed } from '@vue/reactivity';
 
 const user = computed(() => usePage().props.value.auth.user)

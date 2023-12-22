@@ -94,14 +94,15 @@
 </template>
 
 <script setup>
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import { Link, useForm,usePage } from '@inertiajs/vue3';
+// import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+import { Link, useForm,usePage,router } from '@inertiajs/vue3';
 
-import { Inertia } from '@inertiajs/inertia';
+// import { Inertia } from '@inertiajs/inertia';
 import {ref,computed} from 'vue'
 import Navbar from '@/Layouts/Navbar.vue';
 let url=ref('http://127.0.0.1:8000/storage/product_images');
-const user = computed(() => usePage().props.value.auth.user)
+// const user = computed(() => usePage().props.value.auth.user)
+const user=computed(() => usePage().props.auth.user)
 const props=defineProps({
     post:{
         type:Object
@@ -122,7 +123,7 @@ const commentSubmit=()=>{
 }
 const destroy=(id)=>{
 
-    Inertia.delete(route("comment.destroy",id));
+    router.delete(route("comment.destroy",id));
 }
 </script>
 

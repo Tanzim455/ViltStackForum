@@ -65,7 +65,8 @@
 
 <script setup>
 
-import { useForm, usePage } from "@inertiajs/inertia-vue3";
+// import { useForm, usePage } from "@inertiajs/inertia-vue3";
+import { usePage,useForm} from '@inertiajs/vue3';
 import { onMounted,computed,ref } from "vue";
 import Navbar from '@/Layouts/Navbar.vue'
 // const user = ref(computed(() => usePage().props.value.auth.user))
@@ -82,7 +83,8 @@ const props=defineProps({
 	   }
    
 })
-const user = computed(() => usePage().props.value.auth.user)
+// const user = computed(() => usePage().props.value.auth.user)
+const user=computed(() => usePage().props.auth.user)
 let form=useForm({
     title:props.post.title,
     description:props.post.description,

@@ -156,7 +156,8 @@
 </body>
 </template>
 <script setup>
-import { Link } from '@inertiajs/inertia-vue3';
+// import { Link } from '@inertiajs/inertia-vue3';
+// import { Link } from '@inertiajs/vue3';
 import { onMounted,computed } from '@vue/runtime-core';
 
 import Header from './header.vue'

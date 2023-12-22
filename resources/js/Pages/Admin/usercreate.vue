@@ -11,7 +11,7 @@ import { useForm,Link } from '@inertiajs/vue3'
 
 import Header from './header.vue';
 import SuccessMessage from '@/Components/SuccessMessage.vue';
-const form = useForm({
+let form = useForm({
     name: '',
     email: '',
     password: '',
@@ -30,7 +30,7 @@ const submit = () => {
     form.post(route('admin.usersstore'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
-    form='';
+    // form='';
 };
 </script>
 

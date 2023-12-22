@@ -31,7 +31,7 @@ class PostController extends Controller
          $this->middleware('auth')->except('index','show');
         //  $this->middleware('log')->only('create','edit');
     }
-    public function index(Request $request,Post $post,User $user)
+    public function index()
     {
 
 

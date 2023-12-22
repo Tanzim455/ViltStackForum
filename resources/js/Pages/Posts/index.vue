@@ -59,13 +59,15 @@
 
 
 import Navbar from '../../Layouts/Navbar.vue'
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
-import { Link } from '@inertiajs/inertia-vue3';
-import { computed, ref, watch,onMounted } from 'vue';
-import { Inertia } from '@inertiajs/inertia';
-import { usePage } from '@inertiajs/inertia-vue3';
+// import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
+ import { Link,usePage,router } from '@inertiajs/vue3';
+import { computed} from 'vue';
+// import { Inertia } from '@inertiajs/vue3';
+// import { usePage,router } from '@inertiajs/vue3';
+// import { usePage,router} from "@inertiajs/vue3";
 import SuccessMessage from '@/Components/SuccessMessage.vue';
-const user = computed(() => usePage().props.value.auth.user)
+// const user = computed(() => usePage().props.value.auth.user)
+const user=computed(() => usePage().props.auth.user)
 let props = defineProps({
   posts: Object,
 
@@ -74,11 +76,9 @@ let props = defineProps({
 });
 const destroy=(id)=>{
 
-    Inertia.delete(route("post.destroy",id));
+    router.delete(route("post.destroy",id));
 }
-onMounted(()=>{
-    const posts=fetch('/posts');
-})
+
 </script>
 
 <style>

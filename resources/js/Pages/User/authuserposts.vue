@@ -44,8 +44,10 @@
 </template>
 
 <script setup>
-import { Inertia } from '@inertiajs/inertia';
-import { Link } from '@inertiajs/inertia-vue3';
+// import { Inertia } from '@inertiajs/inertia';
+import { router,Link } from '@inertiajs/vue3'
+
+// import { Link } from '@inertiajs/inertia-vue3';
 import axios from 'axios';
 import SuccessMessage from '@/Components/SuccessMessage.vue';
 import { onMounted,ref } from 'vue';
@@ -58,7 +60,7 @@ onMounted(()=>{
 })
 const destroy=(id)=>{
 
-    Inertia.delete(route("post.destroy",id));
+    router.delete(route("post.destroy",id));
    let i=postsref.value.map(data=>data.id).indexOf(id)
    postsref.value.splice(i,1)
 

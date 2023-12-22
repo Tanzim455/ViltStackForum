@@ -17,6 +17,8 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import BreezeGuestLayout from '@/Layouts/Guest.vue';
 import { computed } from 'vue';
- import { usePage } from '@inertiajs/inertia-vue3';
-const user = computed(() => usePage().props.value.auth.user)
+//  import { usePage } from '@inertiajs/inertia-vue3';
+ import { usePage } from '@inertiajs/vue3'
+// const user = computed(() => usePage().props.value.auth.user)
+const user = computed(() => usePage().props.auth.user)
 </script>

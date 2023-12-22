@@ -87,11 +87,12 @@
 </template>
 
 <script setup>
-import { Link, usePage } from '@inertiajs/vue3';
+import { Link, usePage,useForm } from '@inertiajs/vue3';
 import Header from '../Admin/header.vue';
 import { computed } from 'vue';
-import { useForm } from "@inertiajs/vue3";
-import { Inertia } from '@inertiajs/inertia';
+// import { useForm } from "@inertiajs/vue3";
+// import { inertia } from '@inertiajs/inertia';
+import { router } from '@inertiajs/vue3'
 import SuccessMessage from '@/Components/SuccessMessage.vue';
 const user = computed(() => usePage().props.value.auth.user)
 const userRoleid=computed(()=>{
@@ -117,7 +118,7 @@ const handleSubmit=()=>{
 form.post(route('categories.store'));
 }
 const destroy=(id)=>{
- Inertia.delete(route("categories.destroy",id));
+ router.delete(route("categories.destroy",id));
 }
 </script>
 

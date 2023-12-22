@@ -73,8 +73,9 @@
 </template>
 
 <script setup>
-import { Inertia } from '@inertiajs/inertia';
-import { Link } from '@inertiajs/inertia-vue3';
+// import { Inertia } from '@inertiajs/inertia';
+// import { Link } from '@inertiajs/inertia-vue3';
+import { Link} from '@inertiajs/vue3';
 import axios from 'axios';
 import { onMounted,computed, ref } from 'vue';
 defineProps({

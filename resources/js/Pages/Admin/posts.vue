@@ -88,8 +88,9 @@ v-html="link.label"
 
 </template>
 <script setup>
-import { Inertia } from '@inertiajs/inertia';
-import { Link, usePage } from '@inertiajs/inertia-vue3';
+import { router } from '@inertiajs/vue3'
+// import { Link, usePage } from '@inertiajs/inertia-vue3';
+import { Link,usePage } from '@inertiajs/vue3'
 
 
 import { computed } from '@vue/reactivity';
@@ -114,7 +115,7 @@ const filteredposts=computed(()=>{
 })
 const destroy=(id)=>{
 
-    Inertia.delete(route("post.destroy",id));
+    router.delete(route("post.destroy",id));
 }
 </script>
 <style>
