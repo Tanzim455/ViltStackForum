@@ -78,18 +78,12 @@
 
 <script setup>
 
-// import { onMounted,computed,ref } from "vue";
-import { reactive } from 'vue'
-import { router } from '@inertiajs/vue3'
+
 import { useForm } from '@inertiajs/vue3'
-// import Authenticated from '../../Layouts/Authenticated.vue'
-// import BreezeGuestLayout from '@/Layouts/Guest.vue';
+
 import Navbar from '@/Layouts/Navbar.vue';
 import SuccessMessage from '@/Components/SuccessMessage.vue';
-// const user = ref(computed(() => usePage().props.value.auth.user))
-// onMounted(()=>{
-//   console.log("Hello",user.value.id);
-// })
+
 let form=useForm({
     title:null,
     description:null,
@@ -110,7 +104,7 @@ const handleSubmit=()=>{
     //  Inertia.post('/users', form);
     //Much cleaner way 
     form.post(route('post.store'));
-    
+    form.reset();
    
 }
 // const selected=ref(null);

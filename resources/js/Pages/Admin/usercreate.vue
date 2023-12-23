@@ -30,7 +30,7 @@ const submit = () => {
     form.post(route('admin.usersstore'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
-    // form='';
+    form.reset()
 };
 </script>
 

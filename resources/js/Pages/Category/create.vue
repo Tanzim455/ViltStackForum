@@ -94,7 +94,8 @@ import { computed } from 'vue';
 // import { inertia } from '@inertiajs/inertia';
 import { router } from '@inertiajs/vue3'
 import SuccessMessage from '@/Components/SuccessMessage.vue';
-const user = computed(() => usePage().props.value.auth.user)
+// const user = computed(() => usePage().props.value.auth.user)
+const user=computed(() => usePage().props.auth.user)
 const userRoleid=computed(()=>{
    return user.value && user.value.role_id===1;
 
@@ -116,6 +117,7 @@ defineProps({
 })
 const handleSubmit=()=>{
 form.post(route('categories.store'));
+form.reset();
 }
 const destroy=(id)=>{
  router.delete(route("categories.destroy",id));

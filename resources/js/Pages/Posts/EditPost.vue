@@ -98,6 +98,7 @@ const handleSubmit=()=>{
     //Much cleaner way 
     // form.post(route('posts.store'),form);
     form.put(route('post.update',form.id));
+	form.reset();
    
 }
 </script>

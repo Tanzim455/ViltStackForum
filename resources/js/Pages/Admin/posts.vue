@@ -106,7 +106,7 @@ const props=defineProps({
         type:Object
      }
 });
-const user = computed(() => usePage().props.value.auth.user)
+const user = computed(() => usePage().props.auth.user)
 const categoryvalue=ref('');
 const filteredposts=computed(()=>{
     //    return props.categories.filter(item=>item.name==='VueJS')
