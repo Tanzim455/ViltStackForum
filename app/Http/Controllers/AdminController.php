@@ -50,7 +50,7 @@ class AdminController extends Controller
         ]);
        $user->save();
        return redirect()->back()->with('message','User has been created.Please inform the user to verify his/her email');
-       event(new Registered($user));
+    //    event(new Registered($user));
 
 
     }

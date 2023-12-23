@@ -17,7 +17,7 @@
 import { useForm, usePage } from '@inertiajs/vue3';
 import { computed } from '@vue/reactivity';
 
-const user = computed(() => usePage().props.value.auth.user)
+const user = computed(() => usePage().props.auth.user)
 let form=useForm({
     id:user.id,
     name:user.name

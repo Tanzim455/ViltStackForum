@@ -26,9 +26,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/',[PostController::class,'index'])->name('home');
-Route::get('/test/home',function(){
-    return view('test');
-});
+// Route::get('/test/home',function(){
+//     return view('test');
+// });
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth'])->name('dashboard');
