@@ -20,20 +20,16 @@ Then in cli run cp .env .env.example
 Create a database and write similar name of database in .env file
 
 ## 5.Database migration
-
 php artisan migrate
 
 ## 6.Seeding The Database
-
 php artisan db:seed --class=RoleSeeder
 php artisan db:seed --class=CategorySeeder
-
 
 ## 7.Install and run npm 
 npm install and npm run dev
 
 ## 8.Generate dummy 10 users 
-
 User::factory(10)->create();
 
 
