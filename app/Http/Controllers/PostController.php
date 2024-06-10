@@ -156,17 +156,42 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        //
-        $post=Posts::find($id);
-        $post->title=$request->input('title');
-        $post->description=$request->input('description');
-        $post->category_id=$request->input('category_id');
-        $post->update();
-        return Redirect::route('post.index')->with('message','Your post has been updated');
+        $post = Posts::find($id);
+        
+        $post->title = $request->input('title');
+        $post->description = $request->input('description');
+        $post->category_id = $request->input('category_id');
+        
+        // Check if there is a new image file in the request
+        if ($request->hasFile('image')) {
+          
+            // Delete the existing image if it exists
+            if ($post->image) {
+                Storage::delete($post->image);
+            }
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('image')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+
+        $request->file('image')->storeAs('public/product_images',$fileNameToStore);
 
 
+
+
+                $post->image = $fileNameToStore;
+                $post->save();    
+           
+        }
+        
+        $post->save();
+        
+        return Redirect::route('post.index')->with('message', 'Your post has been updated');
     }
 
     /**
